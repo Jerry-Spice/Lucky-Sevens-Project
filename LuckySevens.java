@@ -168,16 +168,17 @@ public class LuckySevens
         return numOfTurns;
     }
     
-    public int getBalance() {
+    public int getBalance() { //returns the balance
         return balance;
     }
     //lvl 2
     public int getMaxBalance() {
         return maxBalance;
     }
-    public int getMaxBalTurn() {
+    public int getMaxBalTurn() { //returns max balance and the turn it was achieved
         return maxBalTurn;
     }
+    // Every method from here on out is the same and just returns the number of times each sum has been rolled.
     public int getSumSeven() {
         return sumSeven;
     }
