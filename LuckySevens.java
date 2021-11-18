@@ -63,6 +63,9 @@ public class LuckySevens
     }
     
     //playTurn() -> adds a turn then rolls 2 die and adds them together
+    // then checks whether the sum is 7 and adds 4 or subtracts 1 otherwise
+    //then it uses a switch statement in order to avoid typing an endless amount of if/else statements
+    // but the switch just adds the count for every other sum that isnt 7.
     public void playTurn() {
         numOfTurns ++; // add a turn
         int d1 = rollDie();
@@ -115,7 +118,7 @@ public class LuckySevens
                 break;
         }
     }
-    
+    //playGame() -> it just repeats turns until the player loses all money then finally runs the gameReport
     public void playGame() {
         while (balance > 0) {
             playTurn();
@@ -124,6 +127,12 @@ public class LuckySevens
         System.out.println(getGameReport());
     }
     
+    //getGameReport() -> logs the info from the game
+    // order of info logged
+    // player rounds
+    // seven percentage
+    //max money & @ what turn
+    //table of rolling stats
     public String getGameReport() {
         String msg = "";
         double percent = ((double)sumSeven/(double)numOfTurns)*100.0;
@@ -141,8 +150,8 @@ public class LuckySevens
         
         //lvl 3 mesages
         msg+= "--------Rolling Stats--------\n";
-        msg+= String.format("Snake Eyes (2) | %d\n", getSnakeEyes());
-        msg+= String.format("Ace Duce (3)   | %d\n", getAceDuce());
+        msg+= String.format("Snake Eyes (2) | %d\n", getSnakeEyes()); // Stformatring.Format just makes it so i dont have to have a bunch of +'s on top of string literals 
+        msg+= String.format("Ace Duce (3)   | %d\n", getAceDuce()); // and instead i can just practice with the format characters like %d which is for number and ints
         msg+= String.format("Four           | %d\n", getFour());
         msg+= String.format("Five           | %d\n", getFive());
         msg+= String.format("Six            | %d\n", getSix());
@@ -154,7 +163,7 @@ public class LuckySevens
         msg+= "-----------------------------";
         return msg;
     }
-    
+    //methods for getting values
     public int getNumOfTurns() {
         return numOfTurns;
     }
