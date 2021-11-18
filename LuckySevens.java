@@ -1,7 +1,7 @@
 /**
  *  A class that models the game of Lucky Sevens. 
  *  
- *  @author: Your Name
+ *  @author: Josh Brandon, Siwen Liao
  *  @AP Computer Science A, Virtual Virginia
  */
 import java.lang.Math;
@@ -15,8 +15,9 @@ public class LuckySevens
     //lvl 2 requirements
     private int maxBalance;
     private int maxBalTurn;
-    private int sumSeven;
+    private int sumSeven; // sum seven tracks how many times a seven appears 
     
+    // all these variables track teh number of times each roll appears
     private int snakeEyes;
     private int aceDuce;
     private int four;
@@ -28,9 +29,9 @@ public class LuckySevens
     private int yo;
     private int boxcars;
     
-    public LuckySevens(int userBalance) {
+    public LuckySevens(int userBalance) { // constructor for the tests
         //balance init
-        if (userBalance < 0) {
+        if (userBalance < 0) { // condition that if the balance is < 0 just set it to 0, so you cant be in debt.
             balance = 0;
         } else {
             balance = userBalance;
@@ -42,6 +43,7 @@ public class LuckySevens
         maxBalTurn = 0;
         sumSeven = 0;
         //lvl 3 inits
+        //this just initializes all the variables so we know they are 0.
         snakeEyes = 0;
         aceDuce = 0;
         four = 0;
@@ -54,11 +56,13 @@ public class LuckySevens
         boxcars = 0;
     }
     
+    //rollDie() -> returns a random number 1->6
     public int rollDie() {
         //random - range [0,1) * 6 -> range [0,6) +1 range [0,7) -> range [0,6]
         return (int)((Math.random() * 6) +1);
     }
     
+    //playTurn() -> adds a turn then rolls 2 die and adds them together
     public void playTurn() {
         numOfTurns ++; // add a turn
         int d1 = rollDie();
